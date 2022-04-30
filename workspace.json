@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "projects": {
+    "bot-backend": "apps/bot-backend"
+  }
+}
