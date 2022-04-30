@@ -1,6 +1,10 @@
 {
   "version": 2,
   "projects": {
-    "bot-backend": "apps/bot-backend"
+    "application": "libs/application",
+    "bot-backend": "apps/bot-backend",
+    "discord": "libs/discord",
+    "infrastructure": "libs/infrastructure",
+    "models": "libs/models"
   }
 }
