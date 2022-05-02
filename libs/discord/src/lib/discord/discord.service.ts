@@ -4,24 +4,18 @@ import { DiscordModuleOptions } from '../types';
 
 @Injectable()
 export class DiscordService extends Discord.Client {
-  constructor(
-    private readonly discordModuleOptions: DiscordModuleOptions,
-    private readonly logger: Logger
-  ) {
+  constructor(discordModuleOptions: DiscordModuleOptions, logger: Logger) {
     super(discordModuleOptions.clientOptions);
 
     this.login(discordModuleOptions.token)
       .then(() => {
-        this.logger.log(
+        logger.log(
           'Discord bot client successfully logged in',
           DiscordService.name
         );
       })
-      .catch(() => {
-        this.logger.error(
-          'An error occurred while authenticating the discord client',
-          DiscordService.name
-        );
+      .catch((err) => {
+        logger.error(err.message, DiscordService.name);
       });
   }
 }
