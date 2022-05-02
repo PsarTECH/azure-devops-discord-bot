@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { InfrastructureModule } from '@psartech/infrastructure';
 import { ApplicationConfigModule } from './config/application-config.module';
 import { CqrsModule } from '@nestjs/cqrs';
@@ -10,6 +10,7 @@ import { PullRequestCompletedEventHandler } from './events/handlers/pull-request
   controllers: [],
   imports: [ApplicationConfigModule, InfrastructureModule, CqrsModule],
   providers: [
+    Logger,
     PullRequestCreatedEventHandler,
     PullRequestUpdatedEventHandler,
     PullRequestCompletedEventHandler,

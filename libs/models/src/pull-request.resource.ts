@@ -1,15 +1,5 @@
 import { ApiProperty } from '@nestjs/swagger';
-
-export class Project {
-  @ApiProperty()
-  id?: string;
-  @ApiProperty()
-  name?: string;
-  @ApiProperty()
-  url?: string;
-  @ApiProperty()
-  state?: string;
-}
+import { Project } from './project';
 
 export class Repository {
   @ApiProperty()
@@ -102,4 +92,44 @@ export class PullRequestResource {
   commits?: Commit[];
   @ApiProperty()
   url?: string;
+
+  constructor({
+    repository,
+    pullRequestId,
+    status,
+    createdBy,
+    creationDate,
+    closedDate,
+    title,
+    description,
+    sourceRefName,
+    targetRefName,
+    mergeStatus,
+    mergeId,
+    lastMergeSourceCommit,
+    lastMergeTargetCommit,
+    lastMergeCommit,
+    reviewers,
+    commits,
+    url,
+  }: PullRequestResource) {
+    this.repository = repository;
+    this.pullRequestId = pullRequestId;
+    this.status = status;
+    this.createdBy = createdBy;
+    this.creationDate = creationDate;
+    this.closedDate = closedDate;
+    this.title = title;
+    this.description = description;
+    this.sourceRefName = sourceRefName;
+    this.targetRefName = targetRefName;
+    this.mergeStatus = mergeStatus;
+    this.mergeId = mergeId;
+    this.lastMergeSourceCommit = lastMergeSourceCommit;
+    this.lastMergeTargetCommit = lastMergeTargetCommit;
+    this.lastMergeCommit = lastMergeCommit;
+    this.reviewers = reviewers;
+    this.commits = commits;
+    this.url = url;
+  }
 }
