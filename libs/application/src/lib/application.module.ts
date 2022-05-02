@@ -1,27 +1,19 @@
-import { Module, OnModuleInit } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { InfrastructureModule } from '@psartech/infrastructure';
 import { ApplicationConfigModule } from './config/application-config.module';
-import { CqrsModule, QueryBus } from '@nestjs/cqrs';
-import {
-  GetHeroesQuery,
-  GetHeroesQueryHandler,
-} from './queries/get-heroes.query';
+import { CqrsModule } from '@nestjs/cqrs';
+import { PullRequestCreatedEventHandler } from './events/handlers/pull-request-created-event.handler';
+import { PullRequestUpdatedEventHandler } from './events/handlers/pull-request-updated-event.handler';
+import { PullRequestCompletedEventHandler } from './events/handlers/pull-request-completed-event.handler';
 
 @Module({
   controllers: [],
   imports: [ApplicationConfigModule, InfrastructureModule, CqrsModule],
-  providers: [GetHeroesQueryHandler],
-  exports: [CqrsModule, GetHeroesQueryHandler],
+  providers: [
+    PullRequestCreatedEventHandler,
+    PullRequestUpdatedEventHandler,
+    PullRequestCompletedEventHandler,
+  ],
+  exports: [CqrsModule],
 })
-export class ApplicationModule implements OnModuleInit {
-  constructor(private readonly queryBus: QueryBus) {}
-
-  async getHero() {
-    const hero = await this.queryBus.execute(new GetHeroesQuery());
-    console.log(hero);
-  }
-
-  onModuleInit(): any {
-    this.getHero().catch(console.log);
-  }
-}
+export class ApplicationModule {}

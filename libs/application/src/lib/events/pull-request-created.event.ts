@@ -1,3 +1,5 @@
-import { AbstractPullRequestEvent } from './abstract-pull-request.event';
+import { DevopsMessage } from '@psartech/models';
 
-export class PullRequestCreatedEvent extends AbstractPullRequestEvent {}
+export class PullRequestCreatedEvent {
+  public constructor(public readonly devOpsMessage: DevopsMessage) {}
+}
