@@ -1,6 +1,7 @@
 import { EventType } from './event-type.enum';
 import { PullRequestResource } from './pull-request.resource';
 import { ApiProperty } from '@nestjs/swagger';
+import { Project } from './project';
 
 export class Message {
   @ApiProperty()
@@ -21,11 +22,6 @@ export class Account {
   id?: string;
 }
 
-export class Project {
-  @ApiProperty()
-  id?: string;
-}
-
 export class ResourceContainers {
   @ApiProperty()
   collection?: Collection;
@@ -35,10 +31,12 @@ export class ResourceContainers {
   project?: Project;
 }
 
-export class DevopsMessage {
+type Resource = PullRequestResource | any;
+
+export class DevopsMessage<T = Resource> {
   @ApiProperty()
   id?: string;
-  @ApiProperty()
+  @ApiProperty({ type: 'string' })
   eventType?: EventType | string;
   @ApiProperty()
   publisherId?: string;
@@ -49,7 +47,7 @@ export class DevopsMessage {
   @ApiProperty()
   detailedMessage?: Message;
   @ApiProperty()
-  resource?: PullRequestResource;
+  resource?: T;
   @ApiProperty()
   resourceVersion?: string;
   @ApiProperty()
