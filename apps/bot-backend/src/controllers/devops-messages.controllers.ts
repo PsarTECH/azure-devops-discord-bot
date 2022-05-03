@@ -2,7 +2,7 @@ import { BadRequestException, Body, Controller, Post } from '@nestjs/common';
 import { EventBus } from '@nestjs/cqrs';
 import { DevopsMessage, EventType } from '@psartech/models';
 import { ApiBody, ApiNoContentResponse } from '@nestjs/swagger';
-import { eventMappings } from '../../../../libs/application/src/lib/events/event-mappings';
+import { eventMappings } from '@psartech/application';
 
 @Controller('devops/messages')
 export class DevopsMessagesControllers {
