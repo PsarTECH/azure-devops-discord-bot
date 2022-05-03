@@ -33,6 +33,9 @@ export class ResourceContainers {
 
 type Resource = PullRequestResource | any;
 
+/**
+ * @link https://docs.microsoft.com/en-us/azure/devops/service-hooks/events?view=azure-devops
+ */
 export class DevopsMessage<T = Resource> {
   @ApiProperty()
   id?: string;

@@ -1,7 +1,4 @@
-import { DevopsMessage, PullRequestResource } from '@psartech/models';
+import { PullRequestResource } from '@psartech/models';
+import { AbstractDevopsMessageEvent } from './common/abstract-devops-message-event';
 
-export class PullRequestCompletedEvent {
-  public constructor(
-    public readonly devOpsMessage: DevopsMessage<PullRequestResource>
-  ) {}
-}
+export class PullRequestCompletedEvent extends AbstractDevopsMessageEvent<PullRequestResource> {}
