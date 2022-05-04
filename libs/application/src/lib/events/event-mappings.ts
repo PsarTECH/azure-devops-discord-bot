@@ -1,10 +1,8 @@
 import { DevopsMessage, EventType } from '@psartech/models';
-import {
-  PullRequestCompletedEvent,
-  PullRequestCreatedEvent,
-  PullRequestUpdatedEvent,
-} from '@psartech/application';
 import { IEvent } from '@nestjs/cqrs';
+import { PullRequestCreatedEvent } from './pull-request-created.event';
+import { PullRequestUpdatedEvent } from './pull-request-updated.event';
+import { PullRequestCompletedEvent } from './pull-request-completed.event';
 
 const eventMappings = new Map<
   EventType,

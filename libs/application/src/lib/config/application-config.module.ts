@@ -1,8 +1,8 @@
-import { Module } from '@nestjs/common';
+import { Logger, Module } from '@nestjs/common';
 import { DiscordConfigModule } from './discord-config/discord-config.module';
 
 @Module({
-  imports: [DiscordConfigModule],
-  exports: [DiscordConfigModule],
+  imports: [Logger, DiscordConfigModule],
+  exports: [Logger, DiscordConfigModule],
 })
 export class ApplicationConfigModule {}
