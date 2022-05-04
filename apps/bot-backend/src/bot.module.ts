@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ApplicationModule } from '@psartech/application';
 import { ConfigModule } from '@nestjs/config';
-import { DevopsMessagesControllers } from './controllers/devops-messages.controllers';
+import { DevopsMessagesController } from './controllers/devops-messages.controller';
 
 @Module({
-  controllers: [DevopsMessagesControllers],
+  controllers: [DevopsMessagesController],
   imports: [ConfigModule.forRoot(), ApplicationModule],
   providers: [],
 })
