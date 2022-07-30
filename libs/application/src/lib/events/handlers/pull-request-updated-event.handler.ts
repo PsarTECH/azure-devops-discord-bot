@@ -12,7 +12,7 @@ export class PullRequestUpdatedEventHandler
     private readonly logger: Logger
   ) {}
 
-  handle(event: PullRequestUpdatedEvent): any {
+  async handle(event: PullRequestUpdatedEvent): Promise<void> {
     this.logger.log('Pull request updated');
   }
 }

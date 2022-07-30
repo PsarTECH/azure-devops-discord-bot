@@ -14,13 +14,16 @@ async function bootstrap() {
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   const port = process.env.PORT || 3333;
-
+  const SWAGGER_PATH = '/swagger';
   const config = new DocumentBuilder().build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('', app, document);
+  SwaggerModule.setup(SWAGGER_PATH, app, document);
 
   await app.listen(port);
-  Logger.log(`Swagger documentation running on: http://localhost:${port}`);
+  Logger.log(
+    `Swagger documentation running on: http://localhost:${port}${SWAGGER_PATH}`,
+    bootstrap.name
+  );
 }
 
 bootstrap().catch(console.error);

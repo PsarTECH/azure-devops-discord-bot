@@ -12,7 +12,7 @@ export class PullRequestCreatedEventHandler
     private readonly logger: Logger
   ) {}
 
-  async handle(event: PullRequestCreatedEvent): Promise<any> {
+  async handle(event: PullRequestCreatedEvent): Promise<void> {
     this.logger.log('Pull request created');
   }
 }
