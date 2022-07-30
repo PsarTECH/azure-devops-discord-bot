@@ -7,7 +7,6 @@ import { PullRequestUpdatedEventHandler } from './events/handlers/pull-request-u
 import { PullRequestCompletedEventHandler } from './events/handlers/pull-request-completed-event.handler';
 
 @Module({
-  controllers: [],
   imports: [ApplicationConfigModule, InfrastructureModule, CqrsModule],
   providers: [
     Logger,
@@ -15,6 +14,6 @@ import { PullRequestCompletedEventHandler } from './events/handlers/pull-request
     PullRequestUpdatedEventHandler,
     PullRequestCompletedEventHandler,
   ],
-  exports: [CqrsModule, ApplicationConfigModule],
+  exports: [CqrsModule, ApplicationConfigModule, Logger],
 })
 export class ApplicationModule {}
