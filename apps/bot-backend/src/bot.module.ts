@@ -6,6 +6,5 @@ import { DevopsMessagesController } from './controllers/devops-messages.controll
 @Module({
   controllers: [DevopsMessagesController],
   imports: [ConfigModule.forRoot(), ApplicationModule],
-  providers: [],
 })
 export class BotModule {}
