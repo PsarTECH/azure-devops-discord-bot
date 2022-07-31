@@ -2,10 +2,7 @@ import { EventsHandler, IEventHandler } from '@nestjs/cqrs';
 import { DiscordService } from '@psartech/discord';
 import { PullRequestCreatedEvent } from '../pull-request-created.event';
 import { Logger } from '@nestjs/common';
-import {
-  MessageEmbed,
-  TextChannel,
-} from 'discord.js';
+import { EmbedBuilder, TextChannel } from 'discord.js';
 import { ColorEmbedMessageEnum } from '../../color-embed-message-enum';
 
 @EventsHandler(PullRequestCreatedEvent)
@@ -24,7 +21,7 @@ export class PullRequestCreatedEventHandler
       .channels.cache.find(
         (channel) => channel.id == '794540996851400705'
       ) as TextChannel;
-    const embedMsg = new MessageEmbed()
+    const embedMsg = new EmbedBuilder()
       .setColor(ColorEmbedMessageEnum.Created)
       .setTitle(`${event.devOpsMessage.message.text} \t\t`)
       .addFields(
@@ -45,6 +42,6 @@ export class PullRequestCreatedEventHandler
       })
       .setTimestamp();
     console.log(channel.name);
-    await channel.send({embeds: [embedMsg]});
+    await channel.send({ embeds: [embedMsg] });
   }
 }
