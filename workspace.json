@@ -4,6 +4,7 @@
     "application": "libs/application",
     "bot-backend": "apps/bot-backend",
     "discord": "libs/discord",
+    "domain": "libs/domain",
     "infrastructure": "libs/infrastructure",
     "models": "libs/models"
   }

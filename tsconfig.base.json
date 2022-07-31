@@ -17,6 +17,7 @@
     "paths": {
       "@psartech/application": ["libs/application/src/index.ts"],
       "@psartech/discord": ["libs/discord/src/index.ts"],
+      "@psartech/domain": ["libs/domain/src/index.ts"],
       "@psartech/infrastructure": ["libs/infrastructure/src/index.ts"],
       "@psartech/models": ["libs/models/src/index.ts"]
     }
