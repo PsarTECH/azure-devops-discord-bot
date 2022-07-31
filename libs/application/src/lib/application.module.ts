@@ -15,6 +15,6 @@ import { PullRequestCompletedEventHandler } from './events/handlers/pull-request
     PullRequestUpdatedEventHandler,
     PullRequestCompletedEventHandler,
   ],
-  exports: [CqrsModule, ApplicationConfigModule],
+  exports: [CqrsModule, ApplicationConfigModule, Logger],
 })
 export class ApplicationModule {}
